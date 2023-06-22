@@ -7,7 +7,7 @@ const LoadingContainer = ({file, setUrl} : any) => {
         const storageRef = ref(storage, `/files/${file.name}`)
         const uploadTask = uploadBytesResumable(storageRef, file);
 
-        uploadTask.on('state_changed', null, (err) => console.error(err), () => {
+        uploadTask.on('state_changed', snaptshot => {console.log(snaptshot.state)}, (err) => console.error(err), () => {
             getDownloadURL(uploadTask.snapshot.ref).then(url => setUrl(url))
         })
     }
