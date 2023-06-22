@@ -5,8 +5,18 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'cost-white' : '#fafafb',
+        'cost-blue' : '#f6f8fb',
+      },
+    },
   },
   plugins: [],
+  safelist: [
+    {
+      pattern: /(bg|text|border)-(cost-white|cost-blue)/,
+    }
+  ]
 }
 
